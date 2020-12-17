@@ -1,1 +1,0 @@
-pyTelegramBotApi module required https://github.com/eternnoir/pyTelegramBotAPI
