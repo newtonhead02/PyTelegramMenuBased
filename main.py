@@ -1,8 +1,8 @@
 import telebot
 from telebot import types
-from function import chat_log
+from func import chat_log
 
-bot = telebot.TeleBot("token", parse_mode=None) #here you have to put your token
+bot = telebot.TeleBot("1890304894:AAGbgQeuuOgAq62mcqnIMjsGq3Jd83iVq5c", parse_mode=None) #here you have to put your token
 user = bot.get_me()
 update = bot.get_updates()
 
@@ -27,7 +27,7 @@ def send_welcome(message):
     def are_you_a_human_button(message):
         bot.send_message(message.from_user.id, 'No i am not!')
         print(chat_log(message))
-
+        
     @bot.message_handler(regexp= 'Reply to my message please')
     def reply_answer(message):
         bot.reply_to(message, 'Ok!') #replies
