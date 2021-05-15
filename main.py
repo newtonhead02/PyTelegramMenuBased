@@ -31,6 +31,7 @@ def send_welcome(message):
     @bot.message_handler(regexp= 'Reply to my message please')
     def reply_answer(message):
         bot.reply_to(message, 'Ok!') #replies
+        print(chat_log(message))
 
 @bot.message_handler(regexp= 'Send me to another menu please')
 def another_menu_answer(message):
@@ -39,13 +40,16 @@ def another_menu_answer(message):
     main_menu_button = types.KeyboardButton('Main Menu')
     second_menu_markup.add(thank_you_button, main_menu_button)
     bot.send_message(message.from_user.id, 'Ok!', reply_markup=second_menu_markup)
+    print(chat_log(message))
 
     @bot.message_handler(regexp= 'Thank you!')
     def thank_you_answer(message):
         bot.send_message(message.from_user.id, 'You are welcome :)')
+        print(chat_log(message))
 
     @bot.message_handler(regexp= 'Main Menu')
     def main_menu_answer(message):
         bot.send_message(message.from_user.id, 'Here you are', reply_markup=main_menu_markup)
+        print(chat_log(message))
 
 bot.polling(none_stop=False, interval=False, timeout=20)
